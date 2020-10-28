@@ -1,15 +1,15 @@
 # GC log 分析
 ## 环境说明
 ### GC日志
-联想工作站
-CPU：Xeon-E5 8核
-内存：32GB
-OS：Centos8
+联想工作站:
+CPU：Xeon-E5 8核，
+内存：32GB，
+OS：Centos8，
 JVM：JDK11
 ### 压力测试
-Mac Pro 
-CPU：Intel 4核
-内存：8G
+Mac Pro：
+CPU：Intel 4核，
+内存：8G，
 JVM：JDK11
 ## 操作流程
 1. 分别配置VM参数 -Xmx，-Xms为128MB、256MB、512MB、1GB、2GB、4GB、8GB、16GB，GC为 SerialGC、ParallelGC、CMS、G1、ZGC启动GCLogAnalysis.java测试输出gc日志，见gclog目录。
