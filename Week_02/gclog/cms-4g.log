@@ -1,0 +1,8 @@
+[0.008s][info][gc] Using Concurrent Mark Sweep
+[0.245s][info][gc] GC(0) Pause Young (Allocation Failure) 532M->157M(4029M) 44.847ms
+[0.379s][info][gc] GC(1) Pause Young (Allocation Failure) 689M->283M(4029M) 45.068ms
+[0.509s][info][gc] GC(2) Pause Young (Allocation Failure) 816M->421M(4029M) 47.594ms
+[0.643s][info][gc] GC(3) Pause Young (Allocation Failure) 954M->544M(4029M) 44.274ms
+[0.774s][info][gc] GC(4) Pause Young (Allocation Failure) 1077M->676M(4029M) 46.505ms
+[0.902s][info][gc] GC(5) Pause Young (Allocation Failure) 1208M->802M(4029M) 44.579ms
+[1.037s][info][gc] GC(6) Pause Young (Allocation Failure) 1335M->931M(4029M) 45.783ms

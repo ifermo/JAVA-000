@@ -1,0 +1,9 @@
+Running 1m test @ http://127.0.0.1:8088/api/hello
+  8 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    13.06ms   35.86ms 376.45ms   94.08%
+    Req/Sec     6.09k     1.38k   12.04k    89.62%
+  2646576 requests in 1.00m, 315.97MB read
+  Socket errors: connect 0, read 315, write 0, timeout 0
+Requests/sec:  44052.90
+Transfer/sec:      5.26MB

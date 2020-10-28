@@ -1,0 +1,14 @@
+[0.077s][info][gc] Using The Z Garbage Collector
+[0.227s][info][gc] GC(0) Garbage Collection (Warmup) 118M(23%)->112M(22%)
+[0.338s][info][gc] GC(1) Garbage Collection (Warmup) 324M(63%)->260M(51%)
+[0.403s][info][gc] Allocation Stall (main) 6.899ms
+[0.411s][info][gc] GC(2) Garbage Collection (Allocation Stall) 444M(87%)->334M(65%)
+[0.458s][info][gc] Allocation Stall (main) 11.145ms
+[0.462s][info][gc] GC(3) Garbage Collection (Allocation Stall) 466M(91%)->412M(80%)
+[0.484s][info][gc] Allocation Stall (main) 8.979ms
+[0.484s][info][gc] GC(4) Garbage Collection (Allocation Stall) 470M(92%)->444M(87%)
+[0.508s][info][gc] GC(5) Garbage Collection (Allocation Stall) 470M(92%)->478M(93%)
+[0.508s][info][gc] Allocation Stall (main) 9.460ms
+[0.508s][info][gc] Out Of Memory (main)
+[0.510s][info][gc] Allocation Stall (main) 1.904ms
+[0.513s][info][gc] GC(6) Garbage Collection (Allocation Stall) 478M(93%)->12M(2%)
