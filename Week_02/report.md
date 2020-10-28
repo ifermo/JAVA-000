@@ -1,13 +1,13 @@
 # GC log 分析
 ## 环境说明
 ### GC日志
-联想工作站:
+联想工作站 
 CPU：Xeon-E5 8核，
 内存：32GB，
 OS：Centos8，
 JVM：JDK11
 ### 压力测试
-Mac Pro：
+Mac Pro 
 CPU：Intel 4核，
 内存：8G，
 JVM：JDK11
