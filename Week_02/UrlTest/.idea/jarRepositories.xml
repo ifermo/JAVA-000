@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="c41d46e1-300f-47b5-a351-7418ca74b0de" />
+      <option name="name" value="c41d46e1-300f-47b5-a351-7418ca74b0de" />
+      <option name="url" value="https://maven.aliyun.com/repository/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="f5b5e66d-9158-4edb-8086-81544cac3e5d" />
+      <option name="name" value="f5b5e66d-9158-4edb-8086-81544cac3e5d" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="2d902035-7763-4970-8184-7acd6d0232a6" />
+      <option name="name" value="2d902035-7763-4970-8184-7acd6d0232a6" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="https://maven.aliyun.com/repository/central" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="BintrayJCenter" />
+      <option name="name" value="BintrayJCenter" />
+      <option name="url" value="https://jcenter.bintray.com/" />
+    </remote-repository>
+  </component>
+</project>

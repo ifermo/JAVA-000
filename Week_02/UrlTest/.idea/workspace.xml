@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9f49aa45-b945-4738-b737-a762381bc6b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../.idea/JAVA-000.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/mavenServices.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/cms-128m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/cms-16g-1.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/cms-16g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/cms-1g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/cms-256m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/cms-2g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/cms-4g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/cms-512m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/cms-8g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/g1-128m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/g1-16g-1.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/g1-16g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/g1-1g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/g1-256m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/g1-2g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/g1-4g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/g1-512m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/g1-8g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/parallel-128m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/parallel-16g-1.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/parallel-16g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/parallel-1g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/parallel-256m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/parallel-2g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/parallel-4g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/parallel-512m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/parallel-8g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/serial-128m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/serial-16g-1.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/serial-16g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/serial-1g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/serial-256m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/serial-2g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/serial-4g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/serial-512m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/serial-8g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/zgc-128m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/zgc-16g-1.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/zgc-16g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/zgc-1g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/zgc-256m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/zgc-2g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/zgc-4g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/zgc-512m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gclog/zgc-8g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../report.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/cms-256m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/cms-4g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/g1-256m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/g1-4g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/parallel-256m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/parallel-4g.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/serial-256m.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/serial-4g.log" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1jUCM4Ea8HCkZU8sinivUX4Ugzo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9f49aa45-b945-4738-b737-a762381bc6b9" name="Default Changelist" comment="" />
+      <created>1603849231309</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603849231309</updated>
+      <workItem from="1603849238276" duration="39000" />
+      <workItem from="1603849300953" duration="1015000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="533" y="160" key="#com.intellij.ide.util.MemberChooser" timestamp="1603849935610">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="533" y="160" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1603849935610" />
+    <state x="563" y="346" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1603849548165">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="563" y="346" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1440.900@0.0.1440.900" timestamp="1603849548165" />
+  </component>
+</project>
