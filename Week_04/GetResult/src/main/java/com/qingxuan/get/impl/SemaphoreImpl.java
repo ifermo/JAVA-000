@@ -16,17 +16,11 @@ public class SemaphoreImpl {
         Fibonacci fibonacci = new Fibonacci();
         Result result = new Result();
         Semaphore semaphore = new Semaphore(1);
+        semaphore.acquire();
         new Thread(() -> {
-            try {
-                semaphore.acquire();
-                result.setValue(fibonacci.calc(36));
-                semaphore.release();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            result.setValue(fibonacci.calc(36));
+            semaphore.release();
         }).start();
-        // 休眠1ms，让子线程先得到信号量
-        Thread.sleep(1);
         semaphore.acquire();
         semaphore.release();
         System.out.println("fibonacci(" + 36 + ")=" + result);

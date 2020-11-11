@@ -24,4 +24,4 @@
 
 思维导图见 ‘Java并发编程.png’
 
-![Java并发编程]('https://github.com/ifermo/JAVA-000/blob/main/Week_04/Java并发编程.png')
+![Java并发编程]('https://github.com/ifermo/JAVA-000/blob/main/Week_04/Java并发编程.png?raw=true')
