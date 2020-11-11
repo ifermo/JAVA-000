@@ -28,6 +28,6 @@ public class SemaphoreImpl {
         Thread.sleep(1);
         semaphore.acquire();
         semaphore.release();
-        System.out.println("fibonacci(" + 51 + ")=" + result);
+        System.out.println("fibonacci(" + 36 + ")=" + result);
     }
 }

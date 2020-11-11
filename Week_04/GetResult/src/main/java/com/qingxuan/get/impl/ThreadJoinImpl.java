@@ -17,6 +17,6 @@ public class ThreadJoinImpl {
         Thread worker = new Thread(() -> result.setValue(fibonacci.calc(36)));
         worker.start();
         worker.join();
-        System.out.println("fibonacci(" + 51 + ")=" + result);
+        System.out.println("fibonacci(" + 36 + ")=" + result);
     }
 }
