@@ -25,6 +25,7 @@ public class SemaphoreImpl {
                 e.printStackTrace();
             }
         }).start();
+        // 休眠1ms，让子线程先得到信号量
         Thread.sleep(1);
         semaphore.acquire();
         semaphore.release();
