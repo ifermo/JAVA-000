@@ -1,0 +1,5 @@
+CREATE TABLE user(
+    uid INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    PRIMARY KEY (uid));
