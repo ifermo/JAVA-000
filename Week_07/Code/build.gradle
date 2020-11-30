@@ -4,3 +4,32 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds
  */
+allprojects {
+    apply plugin: 'java'
+
+    group = 'pers.qingxuan'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 11
+
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/central'
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'org.slf4j:slf4j-api:1.7.30'
+        implementation 'org.apache.logging.log4j:log4j-core:2.13.3'
+        implementation('org.apache.logging.log4j:log4j-slf4j-impl:2.13.3') {
+            exclude group: 'org.slf4j'
+        }
+
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}

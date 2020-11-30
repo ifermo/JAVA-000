@@ -8,3 +8,7 @@
  */
 
 rootProject.name = 'Code'
+
+include 'InsertTest'
+include 'WRSeparateV1'
+include 'WRSeparateV2'
