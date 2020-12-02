@@ -20,6 +20,7 @@ dependencies {
 
     implementation 'com.google.guava:guava:30.0-jre'
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     runtimeOnly 'mysql:mysql-connector-java'
 
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
