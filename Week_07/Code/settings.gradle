@@ -10,5 +10,6 @@
 rootProject.name = 'Code'
 
 include 'InsertTest'
-include 'WRSeparateV1'
-include 'WRSeparateV2'
+include 'ReadWriteSeparateV1'
+include 'ReadWriteSeparateV1_1'
+include 'ShardingSphereExample'
