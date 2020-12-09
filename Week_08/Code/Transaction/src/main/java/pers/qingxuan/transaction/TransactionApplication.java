@@ -12,7 +12,7 @@ import pers.qingxuan.transaction.conf.TransactionConfiguration;
  * @since Created in 下午10:13 2020/12/9
  */
 @SpringBootApplication
-//@Import(TransactionConfiguration.class)
+@Import(TransactionConfiguration.class)
 public class TransactionApplication {
     
     public static void main(String[] args) {
