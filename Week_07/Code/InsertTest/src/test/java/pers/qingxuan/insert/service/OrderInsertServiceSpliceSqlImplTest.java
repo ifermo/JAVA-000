@@ -26,7 +26,7 @@ class OrderInsertServiceSpliceSqlImplTest {
 
     /**
      * 65600ms
-     * 65600ms
+     * 62710ms
      * @throws Exception
      */
     @Test

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.qingxuan.subtable.dao.OrderDao">
+    <resultMap id="BaseResultMap" type="pers.qingxuan.subtable.entity.Order">
+        <id column="order_id" jdbcType="BIGINT" property="orderId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="addr_id" jdbcType="INTEGER" property="addrId"/>
+        <result column="total_price" jdbcType="DECIMAL" property="totalPrice"/>
+        <result column="state" jdbcType="TINYINT" property="state"/>
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        order_id, user_id, addr_id, total_price, state, gmt_create,gmt_modified
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_order
+        where order_id = #{orderId,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from t_order
+        where order_id = #{orderId,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="pers.qingxuan.subtable.entity.Order">
+        insert into t_order (order_id, user_id, addr_id,
+                total_price, state)
+        values (#{orderId,jdbcType=BIGINT}, #{userId,jdbcType=INTEGER}, #{addrId,jdbcType=INTEGER},
+                #{totalPrice,jdbcType=DECIMAL}, #{state,jdbcType=TINYINT})
+    </insert>
+    <insert id="insertSelective" parameterType="pers.qingxuan.subtable.entity.Order">
+        insert into t_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">
+                order_id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="addrId != null">
+                addr_id,
+            </if>
+            <if test="totalPrice != null">
+                total_price,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">
+                #{orderId,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="addrId != null">
+                #{addrId,jdbcType=INTEGER},
+            </if>
+            <if test="totalPrice != null">
+                #{totalPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="pers.qingxuan.subtable.entity.Order">
+        update t_order
+        <set>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="addrId != null">
+                addr_id = #{addrId,jdbcType=INTEGER},
+            </if>
+            <if test="totalPrice != null">
+                total_price = #{totalPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=TINYINT},
+            </if>
+        </set>
+        where order_id = #{orderId,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="pers.qingxuan.subtable.entity.Order">
+        update t_order
+        set user_id = #{userId,jdbcType=INTEGER},
+            addr_id = #{addrId,jdbcType=INTEGER},
+            total_price = #{totalPrice,jdbcType=DECIMAL},
+            state = #{state,jdbcType=TINYINT}
+        where order_id = #{orderId,jdbcType=BIGINT}
+    </update>
+
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_order
+        WHERE user_id = #{userId,jdbcType=INTEGER}
+        <if test="limitCount">
+            LIMIT #{limitCount,jdbcType=INTEGER}
+        </if>
+    </select>
+</mapper>

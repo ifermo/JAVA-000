@@ -1,0 +1,41 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: ds0,ds1
+      ds0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/micro_mall_0?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: 123456
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/micro_mall_1?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: 123456
+    sharding:
+      default-database-strategy:
+        inline:
+          sharding-column: user_id
+          algorithm-expression: ds$->{user_id % 2}
+      tables:
+        t_order:
+          actual-data-nodes: ds$->{0..1}.t_order_$->{0..14}
+          key-generator:
+            column: order_id
+            type: SNOWFLAKE
+          table-strategy:
+            inline:
+              algorithm-expression: t_order_$->{user_id % 15}
+              sharding-column: user_id
+      binding-tables: t_order
+    props:
+      sql:
+        show: true
+
+mybatis:
+  type-aliases-package: pers.qingxuan.subtable.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
