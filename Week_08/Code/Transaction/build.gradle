@@ -12,9 +12,10 @@ plugins {
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:30.0-jre'
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.apache.shardingsphere:shardingsphere-jdbc-core-spring-boot-starter:5.0.0-alpha'
+    implementation 'org.apache.shardingsphere:shardingsphere-transaction-xa-core:5.0.0-alpha'
     runtimeOnly 'mysql:mysql-connector-java'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
