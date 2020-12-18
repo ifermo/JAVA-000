@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: dubbo-consumer
+
+hmily:
+  support:
+    rpc:
+      annotation: true
