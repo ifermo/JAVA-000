@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.qingxuan.dubbo.dao.DollarDao">
+    <resultMap id="BaseResultMap" type="pers.qingxuan.dubbo.entity.Dollar">
+        <id column="md_id" jdbcType="INTEGER" property="mdId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="balance" jdbcType="DECIMAL" property="balance"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        md_id, user_id, balance
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from m_dollar
+        where md_id = #{mdId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from m_dollar
+        where md_id = #{mdId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="pers.qingxuan.dubbo.entity.Dollar">
+        insert into m_dollar (md_id, user_id, balance)
+        values (#{mdId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{balance,jdbcType=DECIMAL})
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="pers.qingxuan.dubbo.entity.Dollar">
+        update m_dollar
+        <set>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="balance != null">
+                balance = #{balance,jdbcType=DECIMAL},
+            </if>
+        </set>
+        where md_id = #{mdId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="pers.qingxuan.dubbo.entity.Dollar">
+        update m_dollar
+        set user_id = #{userId,jdbcType=INTEGER},
+            balance = #{balance,jdbcType=DECIMAL}
+        where md_id = #{mdId,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from m_dollar
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+</mapper>

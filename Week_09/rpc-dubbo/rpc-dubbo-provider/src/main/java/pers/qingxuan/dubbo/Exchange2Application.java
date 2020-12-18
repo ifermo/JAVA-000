@@ -12,9 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @DubboComponentScan(basePackages = "pers.qingxuan.dubbo.service")
 @SpringBootApplication
-public class ProviderApplication {
+public class Exchange2Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProviderApplication.class);
+        SpringApplication.run(Exchange2Application.class);
     }
 }

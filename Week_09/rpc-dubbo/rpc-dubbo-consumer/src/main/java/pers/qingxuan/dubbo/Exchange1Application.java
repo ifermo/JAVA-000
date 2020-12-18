@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since Created in 下午5:23 2020/12/14
  */
 @SpringBootApplication
-public class ConsumerApplication {
+public class Exchange1Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class);
+        SpringApplication.run(Exchange1Application.class);
     }
 }

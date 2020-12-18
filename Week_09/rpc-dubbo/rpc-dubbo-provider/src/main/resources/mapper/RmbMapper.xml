@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.qingxuan.dubbo.dao.RmbDao">
+    <resultMap id="BaseResultMap" type="pers.qingxuan.dubbo.entity.Rmb">
+        <id column="mr_id" jdbcType="INTEGER" property="mrId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="balance" jdbcType="DECIMAL" property="balance"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        mr_id, user_id, balance
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from m_rmb
+        where mr_id = #{mrId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from m_rmb
+        where mr_id = #{mrId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="pers.qingxuan.dubbo.entity.Rmb">
+        insert into m_rmb (mr_id, user_id, balance)
+        values (#{mrId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{balance,jdbcType=DECIMAL})
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="pers.qingxuan.dubbo.entity.Rmb">
+        update m_rmb
+        <set>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="balance != null">
+                balance = #{balance,jdbcType=DECIMAL},
+            </if>
+        </set>
+        where mr_id = #{mrId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="pers.qingxuan.dubbo.entity.Rmb">
+        update m_rmb
+        set user_id = #{userId,jdbcType=INTEGER},
+            balance = #{balance,jdbcType=DECIMAL}
+        where mr_id = #{mrId,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from m_rmb
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+</mapper>

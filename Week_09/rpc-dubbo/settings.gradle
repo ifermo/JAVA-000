@@ -9,6 +9,6 @@
 
 rootProject.name = 'rpc-dubbo'
 
-include 'rpc-dubbo-api'
-include 'rpc-dubbo-consumer'
-include 'rpc-dubbo-provider'
+include ':rpc-dubbo-api'
+include ':rpc-dubbo-consumer'
+include ':rpc-dubbo-provider'

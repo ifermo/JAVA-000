@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.qingxuan.dubbo.dao.FreezeDao">
+    <resultMap id="BaseResultMap" type="pers.qingxuan.dubbo.entity.Freeze">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="dollar" jdbcType="DECIMAL" property="dollar"/>
+        <result column="rmb" jdbcType="DECIMAL" property="rmb"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id,  dollar, rmb, `status`
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from m_freeze
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from m_freeze
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="pers.qingxuan.dubbo.entity.Freeze">
+        insert into m_freeze (id, dollar, rmb,
+                              `status`)
+        values (#{id,jdbcType=INTEGER}, #{dollar,jdbcType=DECIMAL}, #{rmb,jdbcType=DECIMAL},
+                #{status,jdbcType=TINYINT})
+    </insert>
+    <insert id="insertSelective" parameterType="pers.qingxuan.subtable.entity.Order">
+        insert into m_freeze
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="dollar != null">
+                dollar,
+            </if>
+            <if test="rmb != null">
+                rmb,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="dollar != null">
+                #{dollar,jdbcType=DECIMAL},
+            </if>
+            <if test="rmb != null">
+                #{rmb,jdbcType=DECIMAL},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="pers.qingxuan.dubbo.entity.Freeze">
+        update m_freeze
+        <set>
+            <if test="dollar != null">
+                dollar = #{dollar,jdbcType=DECIMAL},
+            </if>
+            <if test="rmb != null">
+                rmb = #{rmb,jdbcType=DECIMAL},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=TINYINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="pers.qingxuan.dubbo.entity.Freeze">
+        update m_freeze
+        set dollar   = #{dollar,jdbcType=DECIMAL},
+            rmb      = #{rmb,jdbcType=DECIMAL},
+            `status` = #{status,jdbcType=TINYINT}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

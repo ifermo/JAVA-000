@@ -5,7 +5,7 @@ spring:
 dubbo:
   protocol:
     name: dubbo
-    port: 12345
+    port: 8081
   registry:
     address: N/A
 
@@ -13,3 +13,9 @@ hmily:
   support:
     rpc:
       annotation: true
+
+mybatis:
+  type-aliases-package: pers.qingxuan.dubbo.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
