@@ -62,6 +62,7 @@ public class TradeServiceImpl implements TradeService {
         freeze.setDollar(exchange.getDollar());
         freeze.setRmb(exchange.getDollar().multiply(EXCHANGE_RATE));
         freezeDao.insertSelective(freeze);
+        exchange.setFreezeId(freeze.getId());
     }
 
     public void confirmTrade(BalanceExchange exchange) {
