@@ -14,13 +14,13 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author : QingXuan
  * @since Created in 下午7:48 2021/1/4
  */
-public class DefaultRedisLock implements RedisLock{
+public class DefaultRedisLock implements RedisLock {
     public static final Logger log = LoggerFactory.getLogger(DefaultRedisLock.class);
 
     // 释放锁 Lua 脚本
     private static final String RELEASE_SCRIPT = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
     // 锁超时重设 Lua 脚本
-    public static final String LAST_SCRIPT = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('expire', KEYS[1],ARGV[2]) else return 0 end";
+    public static final String LAST_SCRIPT = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('expire', KEYS[1], ARGV[2]) else return 0 end";
     // 锁超时时间
     private final long timeout;
     // 锁续期线程
@@ -107,15 +107,14 @@ public class DefaultRedisLock implements RedisLock{
         public void run() {
             while (keep) {
                 try {
-                    // Thread.sleep(lockTime * 1000 / 3);
-                    TimeUnit.MINUTES.sleep(timeout * 1000 >> 1);
+                    TimeUnit.MILLISECONDS.sleep(timeout * 1000 >> 1);
                     // KEYS 参数
                     String[] keys = new String[]{lockKey};
                     // ARGV 参数
                     String[] values = new String[]{lockValue, String.valueOf(timeout)};
                     // 这里采用 lua 脚本 “续费锁” ，注意要续费是自己持有的锁， value 值唯一确认现在这把锁是自己持有的
-                    String eval = redisCommands.eval(LAST_SCRIPT, ScriptOutputType.INTEGER, keys, values);
-                    if (Integer.parseInt(eval) == 1) {
+                    Long result = redisCommands.eval(LAST_SCRIPT, ScriptOutputType.INTEGER, keys, values);
+                    if (result == 1) {
                         log.info("延期成功，将锁超时时间重置为 {}s", timeout);
                     } else {
                         log.warn("延期失败");
