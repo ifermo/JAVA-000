@@ -11,6 +11,9 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static io.lettuce.core.RedisURI.DEFAULT_TIMEOUT;
+import static pers.qingxuan.redis.RedisConstant.OK;
+
 /**
  * <p> 锁管理者
  *
@@ -19,12 +22,6 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class LockManager {
     public static final Logger log = LoggerFactory.getLogger(DefaultRedisLock.class);
-    /**
-     * 默认超时时间
-     */
-    private static final long DEFAULT_TIMEOUT = 3;
-
-    private static final String SUCCESS = "OK";
 
     private final RedisCommands<String, String> redisCommands;
 
@@ -52,7 +49,7 @@ public class LockManager {
         String value = UUID.randomUUID().toString();
         Optional<RedisLock> result = Optional.empty();
 
-        if (SUCCESS.equals(redisCommands.set(key, value, SetArgs.Builder.nx().ex(timeout)))) {
+        if (OK.equals(redisCommands.set(key, value, SetArgs.Builder.nx().ex(timeout)))) {
             DefaultRedisLock lock = new DefaultRedisLock(redisCommands, key, value, timeout, locks::remove);
             locks.put(key, lock);
             result = Optional.of(lock);

@@ -107,26 +107,26 @@ public class DefaultRedisLock implements RedisLock {
         public void run() {
             while (keep) {
                 try {
-                    TimeUnit.MILLISECONDS.sleep(timeout * 1000 >> 1);
-                    // KEYS 参数
+                    // 休眠一下，防止过频繁
+                    TimeUnit.MILLISECONDS.sleep((timeout * 1000) >> 1);
+
                     String[] keys = new String[]{lockKey};
-                    // ARGV 参数
                     String[] values = new String[]{lockValue, String.valueOf(timeout)};
                     // 这里采用 lua 脚本 “续费锁” ，注意要续费是自己持有的锁， value 值唯一确认现在这把锁是自己持有的
                     Long result = redisCommands.eval(LAST_SCRIPT, ScriptOutputType.INTEGER, keys, values);
                     if (result == 1) {
-                        log.info("延期成功，将锁超时时间重置为 {}s", timeout);
+                        log.info("The extension is successful, reset the lock timeout to {}s", timeout);
                     } else {
-                        log.warn("延期失败");
+                        log.warn("Extension failed");
                         stop();
                     }
                 } catch (InterruptedException ignored) {
                 } catch (Exception e) {
-                    log.warn("延期线程异常");
+                    log.warn("Deferred thread exception");
                     e.printStackTrace();
                 }
             }
-            log.debug("延期结束");
+            log.debug("End of postponement");
         }
     }
 }

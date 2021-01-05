@@ -11,4 +11,9 @@ public final class RedisConstant {
     }
 
     public static final String OK = "OK";
+
+    /**
+     * 锁默认超时时间
+     */
+    private static final long DEFAULT_TIMEOUT = 3;
 }
