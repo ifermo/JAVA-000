@@ -19,8 +19,6 @@ public class DefaultRedisLock implements RedisLock {
 
     // 释放锁 Lua 脚本
     private static final String RELEASE_SCRIPT = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
-    // 锁超时重设 Lua 脚本
-    public static final String LAST_SCRIPT = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('expire', KEYS[1], ARGV[2]) else return 0 end";
     // 锁超时时间
     private final long timeout;
     // 锁续期线程
@@ -103,6 +101,9 @@ public class DefaultRedisLock implements RedisLock {
      */
     private class LockKeepRunnable implements Runnable {
 
+        // 锁超时重设 Lua 脚本
+        public static final String LAST_SCRIPT = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('expire', KEYS[1], ARGV[2]) else return 0 end";
+        
         @Override
         public void run() {
             while (keep) {
