@@ -3,7 +3,8 @@ package pers.qingxuan.redis.counter;
 import io.lettuce.core.ScriptOutputType;
 import io.lettuce.core.api.sync.RedisCommands;
 
-import java.util.Optional;
+
+import java.time.LocalDateTime;
 
 import static pers.qingxuan.redis.RedisConstant.OK;
 
@@ -31,10 +32,14 @@ public class RedisCounter {
      * @return 计数
      */
     public long get() {
-        if (redisCommands.setnx(key, String.valueOf(0))) {
-            return 0;
+        String result = redisCommands.get(key);
+        if (result == null) {
+            if (redisCommands.setnx(key, String.valueOf(0))) {
+                return 0;
+            }
+            return get();
         }
-        return Long.parseLong(redisCommands.get(key));
+        return Long.parseLong(result);
     }
 
     /**
