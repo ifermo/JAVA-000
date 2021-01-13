@@ -7,18 +7,19 @@ import org.slf4j.LoggerFactory;
 import javax.jms.*;
 
 import static pers.qingxuan.activemq.Constant.BROKER_URL;
+import static pers.qingxuan.activemq.Constant.TOPIC_NAME;
 
 /**
  * <p>
  *
  * @author : QingXuan
- * @since Created in 下午11:02 2021/1/11
+ * @since Created in 下午9:07 2021/1/13
  */
-public class SampleConsumer implements Runnable {
-    public static final Logger log = LoggerFactory.getLogger(SampleConsumer.class);
+public class SampleTopicConsumer implements Runnable {
+    public static final Logger log = LoggerFactory.getLogger(SampleTopicConsumer.class);
 
     public static void main(String[] args) {
-        new SampleConsumer().run();
+        new SampleTopicConsumer().run();
     }
 
     @Override
@@ -27,7 +28,7 @@ public class SampleConsumer implements Runnable {
             Connection connection = getConnection();
             connection.start();
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            Queue queue = session.createQueue("test-queue");
+            Topic queue = session.createTopic(TOPIC_NAME);
             MessageConsumer consumer = session.createConsumer(queue);
             consumer.setMessageListener(new SampleMessageListener());
             System.in.read();
@@ -42,20 +43,5 @@ public class SampleConsumer implements Runnable {
     private Connection getConnection() throws JMSException {
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BROKER_URL);
         return connectionFactory.createConnection();
-    }
-
-    public static class SampleMessageListener implements MessageListener {
-
-        @Override
-        public void onMessage(Message message) {
-            if (message instanceof TextMessage) {
-                TextMessage textMessage = (TextMessage) message;
-                try {
-                    log.info(textMessage.getText());
-                } catch (JMSException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
     }
 }
