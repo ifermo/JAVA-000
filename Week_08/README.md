@@ -7,5 +7,4 @@
   2. 在分2个库16张表的前提下将db0的分表后缀改为0,2,4...30，db1的分表后缀改为1,3,5...31；分表规则选择%32.
 ### 分布式事务
 * 基于 hmily TCC 或 ShardingSphere 的 Atomikos XA 实现一个简单的分布式事务应用 demo
-  
   <p/>提交的代码基于 ShardingSphere 的 Atomikos XA 实现样例，见（Code/Transaction）
