@@ -6,41 +6,26 @@ import io.netty.handler.codec.ByteToMessageCodec;
 import pers.qingxuann.fastmq.codec.*;
 import pers.qingxuann.fastmq.protocol.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static pers.qingxuann.fastmq.common.Constant.MAGIC_NUMBER;
 
 /**
- * <p> server ByteToMessageDecoder
+ * <p> client ByteToMessageCodec
  *
  * @author : QingXuan
- * @since Created in 下午9:48 2021/1/19
+ * @since Created in 下午8:51 2021/1/20
  */
-public class Byte2MessageCodec extends ByteToMessageCodec<Message> {
-    private final Map<Byte, MessageCodec> decoders = new HashMap<>();
-    private final Map<Class<?>, MessageCodec> encoders = new HashMap<>();
+public abstract class ClientByte2MessageCodec extends ByteToMessageCodec<Message> {
 
-    public Byte2MessageCodec() {
-        HeartbeatCodec heartbeatCodec = new HeartbeatCodec();
-        decoders.put(heartbeatCodec.type(), heartbeatCodec);
-        encoders.put(Heartbeat.class, heartbeatCodec);
+    public abstract Map<Byte, MessageCodec> decoders();
 
-        LoginRequestCodec loginRequestCodec = new LoginRequestCodec();
-        decoders.put(loginRequestCodec.type(), loginRequestCodec);
-        encoders.put(LoginRequest.class, loginRequestCodec);
-
-        LoginResponseCodec loginResponseCodec = new LoginResponseCodec();
-        decoders.put(loginResponseCodec.type(), loginResponseCodec);
-        encoders.put(LoginResponse.class, loginResponseCodec);
-
-        encoders.put(OfferMessage.class, new OfferMessageCodec());
-    }
+    public abstract Map<Class<?>, MessageCodec> encoders();
 
     @Override
     protected void encode(ChannelHandlerContext ctx, Message msg, ByteBuf out) throws Exception {
-        MessageCodec encoder = encoders.get(msg.getClass());
+        MessageCodec encoder = decoders().get(msg.getClass());
         if (encoder == null) {
             return;
         }
@@ -59,7 +44,7 @@ public class Byte2MessageCodec extends ByteToMessageCodec<Message> {
             invalidMessageHandle(ctx);
             return;
         }
-        MessageCodec decoder = decoders.get(in.readByte());
+        MessageCodec decoder = decoders().get(in.readByte());
         if (decoder == null) {
             return;
         }
