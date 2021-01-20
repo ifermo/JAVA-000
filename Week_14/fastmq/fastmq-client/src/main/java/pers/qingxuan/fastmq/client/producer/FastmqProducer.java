@@ -7,6 +7,8 @@ import pers.qingxuan.fastmq.client.common.FastmqException;
 import pers.qingxuan.fastmq.client.consumer.ConsumerClientInitializer;
 import pers.qingxuan.fastmq.client.util.ReflectUtils;
 import pers.qingxuan.fastmq.client.serialization.Serializer;
+import pers.qingxuann.fastmq.protocol.OfferMessage;
+import pers.qingxuann.fastmq.protocol.OfferResponse;
 
 import java.io.Closeable;
 import java.net.SocketAddress;
@@ -49,10 +51,13 @@ public class FastmqProducer<T> implements Closeable {
 
     /**
      * 发送消息
+     *
      * @param record {@link ProducerRecord}
      * @return {@link Future}
      */
     public Future<Void> send(ProducerRecord<T> record) {
-        return null;
+        byte[] bytes = serializer.serialize(record.getTopic(), record.getMessage());
+        OfferMessage message = new OfferMessage(record.getTopic(), System.currentTimeMillis(), bytes);
+        return client.channel().writeAndFlush(message);
     }
 }

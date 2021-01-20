@@ -2,6 +2,8 @@ package pers.qingxuan.fastmq.handler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import pers.qingxuan.fastmq.FastmqQueue;
+import pers.qingxuan.fastmq.FastmqStore;
 import pers.qingxuann.fastmq.protocol.OfferMessage;
 import pers.qingxuann.fastmq.protocol.OffsetRequest;
 
@@ -12,6 +14,7 @@ import pers.qingxuann.fastmq.protocol.OffsetRequest;
  * @since Created in 16:31 2021/1/20
  */
 public class MessageOffsetHandler extends SimpleChannelInboundHandler<OffsetRequest> {
+    private final FastmqStore fastmqStore = FastmqStore.getInstance();
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, OffsetRequest msg) throws Exception {
