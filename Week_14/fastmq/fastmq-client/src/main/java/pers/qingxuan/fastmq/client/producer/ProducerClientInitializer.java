@@ -6,6 +6,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.timeout.IdleStateHandler;
 import pers.qingxuan.fastmq.client.handler.HeartbeatHandler;
 import pers.qingxuan.fastmq.client.handler.LoginHandler;
+import pers.qingxuan.fastmq.client.handler.OfferResponseHandler;
 import pers.qingxuan.fastmq.client.handler.ProducerByte2MessageCodec;
 
 /**
@@ -26,6 +27,6 @@ public class ProducerClientInitializer extends ChannelInitializer<SocketChannel>
         pipeline.addLast("idleDetection", new IdleStateHandler(READER_IDLE_TIME_SECONDS, WRITER_IDLE_TIME_SECONDS, ALL_IDLE_TIME_SECONDS));
         pipeline.addLast("heartbeat", new HeartbeatHandler());
         pipeline.addLast("login", new LoginHandler());
-        pipeline.addLast("offer", new LoginHandler());
+        pipeline.addLast("offer", new OfferResponseHandler());
     }
 }

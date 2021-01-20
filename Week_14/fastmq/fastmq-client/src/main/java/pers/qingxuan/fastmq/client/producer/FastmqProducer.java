@@ -33,7 +33,7 @@ public class FastmqProducer<T> implements Closeable {
         try {
             this.config = config;
             SocketAddress address = config.getAddress();
-            this.client = new FastmqClient(new ConsumerClientInitializer());
+            this.client = new FastmqClient(new ProducerClientInitializer());
             this.sentinel = new ChannelCloseListener(client, address);
             this.client.start(address).closeFuture().addListener(this.sentinel);
             this.serializer = ReflectUtils.newInstance(config.getSerializerClass(), Serializer.class);

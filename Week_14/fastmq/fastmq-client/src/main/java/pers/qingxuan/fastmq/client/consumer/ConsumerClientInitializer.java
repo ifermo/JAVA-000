@@ -5,10 +5,7 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.timeout.IdleStateHandler;
-import pers.qingxuan.fastmq.client.handler.ConsumerByte2MessageCodec;
-import pers.qingxuan.fastmq.client.handler.HeartbeatHandler;
-import pers.qingxuan.fastmq.client.handler.LoginHandler;
-import pers.qingxuan.fastmq.client.handler.PollMessageHandler;
+import pers.qingxuan.fastmq.client.handler.*;
 import pers.qingxuann.fastmq.protocol.PollMessage;
 
 import java.util.concurrent.Exchanger;
@@ -38,5 +35,6 @@ public class ConsumerClientInitializer extends ChannelInitializer<SocketChannel>
         pipeline.addLast("heartbeat", new HeartbeatHandler());
         pipeline.addLast("login", new LoginHandler());
         pipeline.addLast("poll", pollMessageHandler);
+        pipeline.addLast("offset",new OffsetResponseHandler());
     }
 }
