@@ -7,8 +7,7 @@ import pers.qingxuann.fastmq.protocol.OfferMessage;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
-import static pers.qingxuann.fastmq.common.Constant.CHARSET;
-import static pers.qingxuann.fastmq.common.Constant.SEND_RESPONSE;
+import static pers.qingxuann.fastmq.common.Constant.*;
 
 /**
  * <p> 生产者消息编码器
@@ -22,7 +21,7 @@ public class OfferMessageCodec implements MessageCodec {
 
     @Override
     public byte type() {
-        return SEND_RESPONSE;
+        return SEND_REQUEST;
     }
 
     @Override

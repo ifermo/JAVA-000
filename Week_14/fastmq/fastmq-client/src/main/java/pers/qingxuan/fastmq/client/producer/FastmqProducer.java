@@ -47,6 +47,11 @@ public class FastmqProducer<T> implements Closeable {
         this.client.close();
     }
 
+    /**
+     * 发送消息
+     * @param record {@link ProducerRecord}
+     * @return {@link Future}
+     */
     public Future<Void> send(ProducerRecord<T> record) {
         return null;
     }

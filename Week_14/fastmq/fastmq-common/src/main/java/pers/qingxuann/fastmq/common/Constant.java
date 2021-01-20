@@ -53,7 +53,11 @@ public final class Constant {
      */
     public static final byte POLL_RESPONSE = 0x06;
     /**
-     * 位移提交帧
+     * 位移提交请求帧
      */
     public static final byte OFFSET_COMMIT = 0x07;
+    /**
+     * 位移提交响应帧
+     */
+    public static final byte OFFSET_RESPONSE = 0x08;
 }

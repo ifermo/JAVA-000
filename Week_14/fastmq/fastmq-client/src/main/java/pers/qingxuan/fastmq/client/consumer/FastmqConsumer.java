@@ -9,6 +9,7 @@ import pers.qingxuan.fastmq.client.util.ReflectUtils;
 
 import java.io.Closeable;
 import java.net.SocketAddress;
+import java.util.concurrent.Future;
 
 /**
  * <p> a fastmq consumer client
@@ -41,9 +42,24 @@ public class FastmqConsumer<T> implements Closeable {
     }
 
     @Override
-    public void close()  {
+    public void close() {
         this.sentinel.close();
         this.client.close();
     }
 
+    /**
+     * 拉取消息
+     * @return {@link ConsumerRecord}
+     */
+    public ConsumerRecord<T> poll() {
+        return null;
+    }
+
+    /**
+     * 提交位移
+     * @return {@link Future}
+     */
+    public Future<Void> commit() {
+        return null;
+    }
 }

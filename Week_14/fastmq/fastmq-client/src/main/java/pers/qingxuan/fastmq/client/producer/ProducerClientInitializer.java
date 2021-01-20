@@ -4,9 +4,9 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.timeout.IdleStateHandler;
-import pers.qingxuan.fastmq.client.handler.Byte2MessageCodec;
 import pers.qingxuan.fastmq.client.handler.HeartbeatHandler;
 import pers.qingxuan.fastmq.client.handler.LoginHandler;
+import pers.qingxuan.fastmq.client.handler.ProducerByte2MessageCodec;
 
 /**
  * <p> fastmq producer client ChannelInitializer
@@ -22,9 +22,10 @@ public class ProducerClientInitializer extends ChannelInitializer<SocketChannel>
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
-        pipeline.addLast("decoder", new Byte2MessageCodec());
+        pipeline.addLast("decoder", new ProducerByte2MessageCodec());
         pipeline.addLast("idleDetection", new IdleStateHandler(READER_IDLE_TIME_SECONDS, WRITER_IDLE_TIME_SECONDS, ALL_IDLE_TIME_SECONDS));
         pipeline.addLast("heartbeat", new HeartbeatHandler());
         pipeline.addLast("login", new LoginHandler());
+        pipeline.addLast("offer", new LoginHandler());
     }
 }

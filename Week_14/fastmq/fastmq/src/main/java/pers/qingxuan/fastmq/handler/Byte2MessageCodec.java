@@ -4,10 +4,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageCodec;
 import pers.qingxuann.fastmq.codec.*;
-import pers.qingxuann.fastmq.protocol.Heartbeat;
-import pers.qingxuann.fastmq.protocol.LoginRequest;
-import pers.qingxuann.fastmq.protocol.LoginResponse;
-import pers.qingxuann.fastmq.protocol.Message;
+import pers.qingxuann.fastmq.protocol.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -32,14 +29,19 @@ public class Byte2MessageCodec extends ByteToMessageCodec<Message> {
 
         LoginRequestCodec loginRequestCodec = new LoginRequestCodec();
         decoders.put(loginRequestCodec.type(), loginRequestCodec);
-        encoders.put(LoginRequest.class, loginRequestCodec);
-
-        LoginResponseCodec loginResponseCodec = new LoginResponseCodec();
-        decoders.put(loginResponseCodec.type(), loginResponseCodec);
-        encoders.put(LoginResponse.class, loginResponseCodec);
+        encoders.put(LoginResponse.class, new LoginResponseCodec());
 
         OfferMessageCodec producerMessageDecoder = new OfferMessageCodec();
         decoders.put(producerMessageDecoder.type(), producerMessageDecoder);
+        encoders.put(OfferResponse.class, new OfferResponseCodec());
+
+        PollRequestCodec pollRequestCodec = new PollRequestCodec();
+        decoders.put(pollRequestCodec.type(), pollRequestCodec);
+        encoders.put(PollMessage.class, new PollMessageCodec());
+
+        OffsetRequestCodec offsetRequestCodec = new OffsetRequestCodec();
+        decoders.put(offsetRequestCodec.type(), offsetRequestCodec);
+        encoders.put(OffsetResponse.class, new OffsetResponseCodec());
     }
 
     @Override
